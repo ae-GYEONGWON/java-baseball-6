@@ -16,6 +16,7 @@ public class Player {
     }
 
     private void readPlayerNumbers() {
+        System.out.println(Message.InputNumber);
         playerNumbersString = Console.readLine();
     }
 
@@ -27,6 +28,7 @@ public class Player {
     }
 
     private void convertStringToIntList() {
+        playerNumbers.clear();
         for (char ch : playerNumbersString.toCharArray()) {
             playerNumbers.add(Character.getNumericValue(ch));
         }
