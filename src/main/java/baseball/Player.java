@@ -29,10 +29,10 @@ public class Player {
     }
 
     private boolean validatePlayerNumbers() {
-        return is_Number();
+        return isNumber();
     }
 
-    private boolean is_Number() {
+    private boolean isNumber() {
         try{
             Integer.parseInt(playerNumbersString);
             return true;
@@ -41,5 +41,7 @@ public class Player {
         }
     }
 
-
+    private boolean isThreeNumber() {
+        return playerNumbers.size() != 3;
+    }
 }
