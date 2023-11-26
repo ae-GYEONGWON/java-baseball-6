@@ -12,7 +12,16 @@ public class Validator {
         }
     }
 
-    public boolean isThreeNumber(List<Integer> listData) {
-        return listData.size() != 3;
+    public boolean isThreeNumberInList(List<Integer> Numbers) {
+        return Numbers.size() == 3;
+    }
+
+    public boolean includeZero(List<Integer> Numbers) {
+        for (int number : Numbers) {
+            if (number == 0) {
+                return true;
+            }
+        }
+        return false;
     }
 }
