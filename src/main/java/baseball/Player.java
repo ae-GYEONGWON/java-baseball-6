@@ -1,21 +1,28 @@
 package baseball;
 
 import camp.nextstep.edu.missionutils.Console;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
     private List<Integer> playerNumbers;
     private String playerNumbersString;
+    private Validator validator;
 
     public Player() {
         playerNumbers = new ArrayList<>();
+        validator = new Validator();
     }
 
-    public String readPlayerNumbers() {
+    private void readPlayerNumbers() {
         playerNumbersString = Console.readLine();
-        return playerNumbersString;
+    }
+
+    private void setPlayerNumbers() {
+        do  {
+            readPlayerNumbers();
+            convertStringToIntList();
+        } while (!validatePlayerNumbers());
     }
 
     private void convertStringToIntList() {
@@ -29,19 +36,6 @@ public class Player {
     }
 
     private boolean validatePlayerNumbers() {
-        return isNumber();
-    }
-
-    private boolean isNumber() {
-        try{
-            Integer.parseInt(playerNumbersString);
-            return true;
-        } catch (NumberFormatException e) {
-            return false;
-        }
-    }
-
-    private boolean isThreeNumber() {
-        return playerNumbers.size() != 3;
+        return validator.isNumber(playerNumbersString) && validator.isThreeNumber(playerNumbers);
     }
 }
